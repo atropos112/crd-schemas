@@ -1,0 +1,9 @@
+{
+  "properties": {
+    "content": {
+      "nullable": true,
+      "type": "string"
+    }
+  },
+  "type": "object"
+}

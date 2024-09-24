@@ -1,0 +1,20 @@
+{
+  "properties": {
+    "customized": {
+      "type": "boolean"
+    },
+    "default": {
+      "nullable": true,
+      "type": "string"
+    },
+    "source": {
+      "nullable": true,
+      "type": "string"
+    },
+    "value": {
+      "nullable": true,
+      "type": "string"
+    }
+  },
+  "type": "object"
+}

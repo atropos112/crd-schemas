@@ -1,0 +1,75 @@
+{
+  "description": "CanaryConfig is for canary deployment of two functions.",
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object.\nServers should convert recognized schemas to the latest internal value, and\nmay reject unrecognized values.\nMore info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "type": "string"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents.\nServers may infer this from the endpoint the client submits requests to.\nCannot be updated.\nIn CamelCase.\nMore info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "type": "string"
+    },
+    "metadata": {
+      "type": "object"
+    },
+    "spec": {
+      "description": "CanaryConfigSpec defines the canary configuration spec",
+      "properties": {
+        "duration": {
+          "description": "Weight increment interval, string representation of time.Duration, ex : 1m, 2h, 2d (default: \"2m\")",
+          "type": "string"
+        },
+        "failureType": {
+          "description": "FailureType refers to the type of failure",
+          "type": "string"
+        },
+        "failurethreshold": {
+          "description": "Threshold in percentage beyond which the new version of the function is considered unstable",
+          "type": "integer"
+        },
+        "newfunction": {
+          "description": "New version of the function",
+          "type": "string"
+        },
+        "oldfunction": {
+          "description": "Old stable version of the function",
+          "type": "string"
+        },
+        "trigger": {
+          "description": "HTTP trigger that this config references",
+          "type": "string"
+        },
+        "weightincrement": {
+          "description": "Weight increment step for function",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "newfunction",
+        "oldfunction",
+        "trigger"
+      ],
+      "type": "object",
+      "additionalProperties": false
+    },
+    "status": {
+      "description": "CanaryConfigStatus represents canary config status",
+      "properties": {
+        "status": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "status"
+      ],
+      "type": "object",
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "metadata",
+    "spec",
+    "status"
+  ],
+  "type": "object"
+}

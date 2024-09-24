@@ -1,0 +1,46 @@
+{
+  "properties": {
+    "apiVersion": {
+      "type": "string"
+    },
+    "kind": {
+      "type": "string"
+    },
+    "metadata": {
+      "type": "object"
+    },
+    "spec": {
+      "properties": {
+        "group": {
+          "type": "string"
+        },
+        "icon": {
+          "type": "string"
+        },
+        "info": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "targetBlank": {
+          "type": "boolean"
+        },
+        "url": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "group",
+        "url"
+      ],
+      "type": "object",
+      "additionalProperties": false
+    },
+    "status": {
+      "type": "object"
+    }
+  },
+  "type": "object"
+}

@@ -1,0 +1,139 @@
+{
+  "properties": {
+    "spec": {
+      "properties": {
+        "basicAuthSecretName": {
+          "nullable": true,
+          "type": "string"
+        },
+        "caBundle": {
+          "nullable": true,
+          "type": "string"
+        },
+        "clientSecret": {
+          "nullable": true,
+          "properties": {
+            "name": {
+              "nullable": true,
+              "type": "string"
+            },
+            "namespace": {
+              "nullable": true,
+              "type": "string"
+            }
+          },
+          "type": "object",
+          "additionalProperties": false
+        },
+        "disableSameOriginCheck": {
+          "type": "boolean"
+        },
+        "enabled": {
+          "nullable": true,
+          "type": "boolean"
+        },
+        "forceUpdate": {
+          "nullable": true,
+          "type": "string"
+        },
+        "gitBranch": {
+          "nullable": true,
+          "type": "string"
+        },
+        "gitRepo": {
+          "nullable": true,
+          "type": "string"
+        },
+        "insecureSkipTLSVerify": {
+          "type": "boolean"
+        },
+        "serviceAccount": {
+          "nullable": true,
+          "type": "string"
+        },
+        "serviceAccountNamespace": {
+          "nullable": true,
+          "type": "string"
+        },
+        "url": {
+          "nullable": true,
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "additionalProperties": false
+    },
+    "status": {
+      "properties": {
+        "branch": {
+          "nullable": true,
+          "type": "string"
+        },
+        "commit": {
+          "nullable": true,
+          "type": "string"
+        },
+        "conditions": {
+          "items": {
+            "properties": {
+              "lastTransitionTime": {
+                "nullable": true,
+                "type": "string"
+              },
+              "lastUpdateTime": {
+                "nullable": true,
+                "type": "string"
+              },
+              "message": {
+                "nullable": true,
+                "type": "string"
+              },
+              "reason": {
+                "nullable": true,
+                "type": "string"
+              },
+              "status": {
+                "nullable": true,
+                "type": "string"
+              },
+              "type": {
+                "nullable": true,
+                "type": "string"
+              }
+            },
+            "type": "object",
+            "additionalProperties": false
+          },
+          "nullable": true,
+          "type": "array"
+        },
+        "downloadTime": {
+          "nullable": true,
+          "type": "string"
+        },
+        "indexConfigMapName": {
+          "nullable": true,
+          "type": "string"
+        },
+        "indexConfigMapNamespace": {
+          "nullable": true,
+          "type": "string"
+        },
+        "indexConfigMapResourceVersion": {
+          "nullable": true,
+          "type": "string"
+        },
+        "observedGeneration": {
+          "type": "integer"
+        },
+        "url": {
+          "nullable": true,
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "additionalProperties": false
+    }
+  },
+  "type": "object"
+}

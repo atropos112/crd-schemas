@@ -1,0 +1,652 @@
+{
+  "properties": {
+    "spec": {
+      "properties": {
+        "dependsOn": {
+          "items": {
+            "properties": {
+              "name": {
+                "nullable": true,
+                "type": "string"
+              },
+              "selector": {
+                "nullable": true,
+                "properties": {
+                  "matchExpressions": {
+                    "items": {
+                      "properties": {
+                        "key": {
+                          "nullable": true,
+                          "type": "string"
+                        },
+                        "operator": {
+                          "nullable": true,
+                          "type": "string"
+                        },
+                        "values": {
+                          "items": {
+                            "nullable": true,
+                            "type": "string"
+                          },
+                          "nullable": true,
+                          "type": "array"
+                        }
+                      },
+                      "type": "object",
+                      "additionalProperties": false
+                    },
+                    "nullable": true,
+                    "type": "array"
+                  },
+                  "matchLabels": {
+                    "additionalProperties": {
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "nullable": true,
+                    "type": "object"
+                  }
+                },
+                "type": "object",
+                "additionalProperties": false
+              }
+            },
+            "type": "object",
+            "additionalProperties": false
+          },
+          "nullable": true,
+          "type": "array"
+        },
+        "deploymentID": {
+          "nullable": true,
+          "type": "string"
+        },
+        "options": {
+          "properties": {
+            "defaultNamespace": {
+              "nullable": true,
+              "type": "string"
+            },
+            "diff": {
+              "nullable": true,
+              "properties": {
+                "comparePatches": {
+                  "items": {
+                    "properties": {
+                      "apiVersion": {
+                        "nullable": true,
+                        "type": "string"
+                      },
+                      "jsonPointers": {
+                        "items": {
+                          "nullable": true,
+                          "type": "string"
+                        },
+                        "nullable": true,
+                        "type": "array"
+                      },
+                      "kind": {
+                        "nullable": true,
+                        "type": "string"
+                      },
+                      "name": {
+                        "nullable": true,
+                        "type": "string"
+                      },
+                      "namespace": {
+                        "nullable": true,
+                        "type": "string"
+                      },
+                      "operations": {
+                        "items": {
+                          "properties": {
+                            "op": {
+                              "nullable": true,
+                              "type": "string"
+                            },
+                            "path": {
+                              "nullable": true,
+                              "type": "string"
+                            },
+                            "value": {
+                              "nullable": true,
+                              "type": "string"
+                            }
+                          },
+                          "type": "object",
+                          "additionalProperties": false
+                        },
+                        "nullable": true,
+                        "type": "array"
+                      }
+                    },
+                    "type": "object",
+                    "additionalProperties": false
+                  },
+                  "nullable": true,
+                  "type": "array"
+                }
+              },
+              "type": "object",
+              "additionalProperties": false
+            },
+            "forceSyncGeneration": {
+              "type": "integer"
+            },
+            "helm": {
+              "nullable": true,
+              "properties": {
+                "chart": {
+                  "nullable": true,
+                  "type": "string"
+                },
+                "force": {
+                  "type": "boolean"
+                },
+                "maxHistory": {
+                  "type": "integer"
+                },
+                "releaseName": {
+                  "nullable": true,
+                  "type": "string"
+                },
+                "repo": {
+                  "nullable": true,
+                  "type": "string"
+                },
+                "takeOwnership": {
+                  "type": "boolean"
+                },
+                "timeoutSeconds": {
+                  "type": "integer"
+                },
+                "values": {
+                  "nullable": true,
+                  "type": "object",
+                  "x-kubernetes-preserve-unknown-fields": true
+                },
+                "valuesFiles": {
+                  "items": {
+                    "nullable": true,
+                    "type": "string"
+                  },
+                  "nullable": true,
+                  "type": "array"
+                },
+                "valuesFrom": {
+                  "items": {
+                    "properties": {
+                      "configMapKeyRef": {
+                        "nullable": true,
+                        "properties": {
+                          "key": {
+                            "nullable": true,
+                            "type": "string"
+                          },
+                          "name": {
+                            "nullable": true,
+                            "type": "string"
+                          },
+                          "namespace": {
+                            "nullable": true,
+                            "type": "string"
+                          }
+                        },
+                        "type": "object",
+                        "additionalProperties": false
+                      },
+                      "secretKeyRef": {
+                        "nullable": true,
+                        "properties": {
+                          "key": {
+                            "nullable": true,
+                            "type": "string"
+                          },
+                          "name": {
+                            "nullable": true,
+                            "type": "string"
+                          },
+                          "namespace": {
+                            "nullable": true,
+                            "type": "string"
+                          }
+                        },
+                        "type": "object",
+                        "additionalProperties": false
+                      }
+                    },
+                    "type": "object",
+                    "additionalProperties": false
+                  },
+                  "nullable": true,
+                  "type": "array"
+                },
+                "version": {
+                  "nullable": true,
+                  "type": "string"
+                }
+              },
+              "type": "object",
+              "additionalProperties": false
+            },
+            "kustomize": {
+              "nullable": true,
+              "properties": {
+                "dir": {
+                  "nullable": true,
+                  "type": "string"
+                }
+              },
+              "type": "object",
+              "additionalProperties": false
+            },
+            "namespace": {
+              "nullable": true,
+              "type": "string"
+            },
+            "serviceAccount": {
+              "nullable": true,
+              "type": "string"
+            },
+            "yaml": {
+              "nullable": true,
+              "properties": {
+                "overlays": {
+                  "items": {
+                    "nullable": true,
+                    "type": "string"
+                  },
+                  "nullable": true,
+                  "type": "array"
+                }
+              },
+              "type": "object",
+              "additionalProperties": false
+            }
+          },
+          "type": "object",
+          "additionalProperties": false
+        },
+        "stagedDeploymentID": {
+          "nullable": true,
+          "type": "string"
+        },
+        "stagedOptions": {
+          "properties": {
+            "defaultNamespace": {
+              "nullable": true,
+              "type": "string"
+            },
+            "diff": {
+              "nullable": true,
+              "properties": {
+                "comparePatches": {
+                  "items": {
+                    "properties": {
+                      "apiVersion": {
+                        "nullable": true,
+                        "type": "string"
+                      },
+                      "jsonPointers": {
+                        "items": {
+                          "nullable": true,
+                          "type": "string"
+                        },
+                        "nullable": true,
+                        "type": "array"
+                      },
+                      "kind": {
+                        "nullable": true,
+                        "type": "string"
+                      },
+                      "name": {
+                        "nullable": true,
+                        "type": "string"
+                      },
+                      "namespace": {
+                        "nullable": true,
+                        "type": "string"
+                      },
+                      "operations": {
+                        "items": {
+                          "properties": {
+                            "op": {
+                              "nullable": true,
+                              "type": "string"
+                            },
+                            "path": {
+                              "nullable": true,
+                              "type": "string"
+                            },
+                            "value": {
+                              "nullable": true,
+                              "type": "string"
+                            }
+                          },
+                          "type": "object",
+                          "additionalProperties": false
+                        },
+                        "nullable": true,
+                        "type": "array"
+                      }
+                    },
+                    "type": "object",
+                    "additionalProperties": false
+                  },
+                  "nullable": true,
+                  "type": "array"
+                }
+              },
+              "type": "object",
+              "additionalProperties": false
+            },
+            "forceSyncGeneration": {
+              "type": "integer"
+            },
+            "helm": {
+              "nullable": true,
+              "properties": {
+                "chart": {
+                  "nullable": true,
+                  "type": "string"
+                },
+                "force": {
+                  "type": "boolean"
+                },
+                "maxHistory": {
+                  "type": "integer"
+                },
+                "releaseName": {
+                  "nullable": true,
+                  "type": "string"
+                },
+                "repo": {
+                  "nullable": true,
+                  "type": "string"
+                },
+                "takeOwnership": {
+                  "type": "boolean"
+                },
+                "timeoutSeconds": {
+                  "type": "integer"
+                },
+                "values": {
+                  "nullable": true,
+                  "type": "object",
+                  "x-kubernetes-preserve-unknown-fields": true
+                },
+                "valuesFiles": {
+                  "items": {
+                    "nullable": true,
+                    "type": "string"
+                  },
+                  "nullable": true,
+                  "type": "array"
+                },
+                "valuesFrom": {
+                  "items": {
+                    "properties": {
+                      "configMapKeyRef": {
+                        "nullable": true,
+                        "properties": {
+                          "key": {
+                            "nullable": true,
+                            "type": "string"
+                          },
+                          "name": {
+                            "nullable": true,
+                            "type": "string"
+                          },
+                          "namespace": {
+                            "nullable": true,
+                            "type": "string"
+                          }
+                        },
+                        "type": "object",
+                        "additionalProperties": false
+                      },
+                      "secretKeyRef": {
+                        "nullable": true,
+                        "properties": {
+                          "key": {
+                            "nullable": true,
+                            "type": "string"
+                          },
+                          "name": {
+                            "nullable": true,
+                            "type": "string"
+                          },
+                          "namespace": {
+                            "nullable": true,
+                            "type": "string"
+                          }
+                        },
+                        "type": "object",
+                        "additionalProperties": false
+                      }
+                    },
+                    "type": "object",
+                    "additionalProperties": false
+                  },
+                  "nullable": true,
+                  "type": "array"
+                },
+                "version": {
+                  "nullable": true,
+                  "type": "string"
+                }
+              },
+              "type": "object",
+              "additionalProperties": false
+            },
+            "kustomize": {
+              "nullable": true,
+              "properties": {
+                "dir": {
+                  "nullable": true,
+                  "type": "string"
+                }
+              },
+              "type": "object",
+              "additionalProperties": false
+            },
+            "namespace": {
+              "nullable": true,
+              "type": "string"
+            },
+            "serviceAccount": {
+              "nullable": true,
+              "type": "string"
+            },
+            "yaml": {
+              "nullable": true,
+              "properties": {
+                "overlays": {
+                  "items": {
+                    "nullable": true,
+                    "type": "string"
+                  },
+                  "nullable": true,
+                  "type": "array"
+                }
+              },
+              "type": "object",
+              "additionalProperties": false
+            }
+          },
+          "type": "object",
+          "additionalProperties": false
+        }
+      },
+      "type": "object",
+      "additionalProperties": false
+    },
+    "status": {
+      "properties": {
+        "appliedDeploymentID": {
+          "nullable": true,
+          "type": "string"
+        },
+        "conditions": {
+          "items": {
+            "properties": {
+              "lastTransitionTime": {
+                "nullable": true,
+                "type": "string"
+              },
+              "lastUpdateTime": {
+                "nullable": true,
+                "type": "string"
+              },
+              "message": {
+                "nullable": true,
+                "type": "string"
+              },
+              "reason": {
+                "nullable": true,
+                "type": "string"
+              },
+              "status": {
+                "nullable": true,
+                "type": "string"
+              },
+              "type": {
+                "nullable": true,
+                "type": "string"
+              }
+            },
+            "type": "object",
+            "additionalProperties": false
+          },
+          "nullable": true,
+          "type": "array"
+        },
+        "display": {
+          "properties": {
+            "deployed": {
+              "nullable": true,
+              "type": "string"
+            },
+            "monitored": {
+              "nullable": true,
+              "type": "string"
+            },
+            "state": {
+              "nullable": true,
+              "type": "string"
+            }
+          },
+          "type": "object",
+          "additionalProperties": false
+        },
+        "modifiedStatus": {
+          "items": {
+            "properties": {
+              "apiVersion": {
+                "nullable": true,
+                "type": "string"
+              },
+              "delete": {
+                "type": "boolean"
+              },
+              "kind": {
+                "nullable": true,
+                "type": "string"
+              },
+              "missing": {
+                "type": "boolean"
+              },
+              "name": {
+                "nullable": true,
+                "type": "string"
+              },
+              "namespace": {
+                "nullable": true,
+                "type": "string"
+              },
+              "patch": {
+                "nullable": true,
+                "type": "string"
+              }
+            },
+            "type": "object",
+            "additionalProperties": false
+          },
+          "nullable": true,
+          "type": "array"
+        },
+        "nonModified": {
+          "type": "boolean"
+        },
+        "nonReadyStatus": {
+          "items": {
+            "properties": {
+              "apiVersion": {
+                "nullable": true,
+                "type": "string"
+              },
+              "kind": {
+                "nullable": true,
+                "type": "string"
+              },
+              "name": {
+                "nullable": true,
+                "type": "string"
+              },
+              "namespace": {
+                "nullable": true,
+                "type": "string"
+              },
+              "summary": {
+                "properties": {
+                  "error": {
+                    "type": "boolean"
+                  },
+                  "message": {
+                    "items": {
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "nullable": true,
+                    "type": "array"
+                  },
+                  "state": {
+                    "nullable": true,
+                    "type": "string"
+                  },
+                  "transitioning": {
+                    "type": "boolean"
+                  }
+                },
+                "type": "object",
+                "additionalProperties": false
+              },
+              "uid": {
+                "nullable": true,
+                "type": "string"
+              }
+            },
+            "type": "object",
+            "additionalProperties": false
+          },
+          "nullable": true,
+          "type": "array"
+        },
+        "ready": {
+          "type": "boolean"
+        },
+        "release": {
+          "nullable": true,
+          "type": "string"
+        },
+        "syncGeneration": {
+          "nullable": true,
+          "type": "integer"
+        }
+      },
+      "type": "object",
+      "additionalProperties": false
+    }
+  },
+  "type": "object"
+}

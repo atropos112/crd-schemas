@@ -1,0 +1,63 @@
+{
+  "description": "TimeTrigger invokes functions based on given cron schedule.",
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object.\nServers should convert recognized schemas to the latest internal value, and\nmay reject unrecognized values.\nMore info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "type": "string"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents.\nServers may infer this from the endpoint the client submits requests to.\nCannot be updated.\nIn CamelCase.\nMore info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "type": "string"
+    },
+    "metadata": {
+      "type": "object"
+    },
+    "spec": {
+      "description": "TimeTriggerSpec invokes the specific function at a time or\ntimes specified by a cron string.",
+      "properties": {
+        "cron": {
+          "description": "Cron schedule",
+          "type": "string"
+        },
+        "functionref": {
+          "description": "The reference to function",
+          "properties": {
+            "functionweights": {
+              "additionalProperties": {
+                "type": "integer"
+              },
+              "description": "Function Reference by weight. this map contains function name as key and its weight\nas the value. This is for canary upgrade purpose.",
+              "nullable": true,
+              "type": "object"
+            },
+            "name": {
+              "description": "Name of the function.",
+              "type": "string"
+            },
+            "type": {
+              "description": "Type indicates whether this function reference is by name or selector. For now,\nthe only supported reference type is by \"name\".  Future reference types:\n  * Function by label or annotation\n  * Branch or tag of a versioned function\n  * A \"rolling upgrade\" from one version of a function to another\nAvailable value:\n- name\n- function-weights",
+              "type": "string"
+            }
+          },
+          "required": [
+            "name",
+            "type"
+          ],
+          "type": "object",
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "cron",
+        "functionref"
+      ],
+      "type": "object",
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "metadata",
+    "spec"
+  ],
+  "type": "object"
+}

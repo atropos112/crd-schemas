@@ -1,0 +1,142 @@
+{
+  "description": "Package Think of these as function-level images.",
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object.\nServers should convert recognized schemas to the latest internal value, and\nmay reject unrecognized values.\nMore info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "type": "string"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents.\nServers may infer this from the endpoint the client submits requests to.\nCannot be updated.\nIn CamelCase.\nMore info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "type": "string"
+    },
+    "metadata": {
+      "type": "object"
+    },
+    "spec": {
+      "description": "PackageSpec includes source/deploy archives and the reference of environment to build the package.",
+      "properties": {
+        "buildcmd": {
+          "description": "BuildCommand is a custom build command that builder used to build the source archive.",
+          "type": "string"
+        },
+        "deployment": {
+          "description": "Deployment is the deployable archive that environment runtime used to run user function.",
+          "properties": {
+            "checksum": {
+              "description": "Checksum ensures the integrity of packages\nreferenced by URL. Ignored for literals.",
+              "properties": {
+                "sum": {
+                  "type": "string"
+                },
+                "type": {
+                  "description": "ChecksumType specifies the checksum algorithm, such as\nsha256, used for a checksum.",
+                  "type": "string"
+                }
+              },
+              "type": "object",
+              "additionalProperties": false
+            },
+            "literal": {
+              "description": "Literal contents of the package. Can be used for\nencoding packages below TODO (256 KB?) size.",
+              "format": "byte",
+              "type": "string"
+            },
+            "type": {
+              "description": "Type defines how the package is specified: literal or URL.\nAvailable value:\n - literal\n - url",
+              "type": "string"
+            },
+            "url": {
+              "description": "URL references a package.",
+              "type": "string"
+            }
+          },
+          "type": "object",
+          "additionalProperties": false
+        },
+        "environment": {
+          "description": "Environment is a reference to the environment for building source archive.",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "namespace": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "name",
+            "namespace"
+          ],
+          "type": "object",
+          "additionalProperties": false
+        },
+        "source": {
+          "description": "Source is the archive contains source code and dependencies file.\nIf the package status is in PENDING state, builder manager will then\nnotify builder to compile source and save the result as deployable archive.",
+          "properties": {
+            "checksum": {
+              "description": "Checksum ensures the integrity of packages\nreferenced by URL. Ignored for literals.",
+              "properties": {
+                "sum": {
+                  "type": "string"
+                },
+                "type": {
+                  "description": "ChecksumType specifies the checksum algorithm, such as\nsha256, used for a checksum.",
+                  "type": "string"
+                }
+              },
+              "type": "object",
+              "additionalProperties": false
+            },
+            "literal": {
+              "description": "Literal contents of the package. Can be used for\nencoding packages below TODO (256 KB?) size.",
+              "format": "byte",
+              "type": "string"
+            },
+            "type": {
+              "description": "Type defines how the package is specified: literal or URL.\nAvailable value:\n - literal\n - url",
+              "type": "string"
+            },
+            "url": {
+              "description": "URL references a package.",
+              "type": "string"
+            }
+          },
+          "type": "object",
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "environment"
+      ],
+      "type": "object",
+      "additionalProperties": false
+    },
+    "status": {
+      "description": "Status indicates the build status of package.",
+      "properties": {
+        "buildlog": {
+          "description": "BuildLog stores build log during the compilation.",
+          "type": "string"
+        },
+        "buildstatus": {
+          "default": "pending",
+          "description": "BuildStatus is the package build status.",
+          "type": "string"
+        },
+        "lastUpdateTimestamp": {
+          "description": "LastUpdateTimestamp will store the timestamp the package was last updated\nmetav1.Time is a wrapper around time.Time which supports correct marshaling to YAML and JSON.\nhttps://github.com/kubernetes/apimachinery/blob/44bd77c24ef93cd3a5eb6fef64e514025d10d44e/pkg/apis/meta/v1/time.go#L26-L35",
+          "format": "date-time",
+          "nullable": true,
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "metadata",
+    "spec"
+  ],
+  "type": "object"
+}
