@@ -54,11 +54,11 @@
                 "description": "JSON Web Key Set of public keys to validate signature of the JWT.",
                 "type": "string"
               },
-              "jwks_uri": {
+              "jwksUri": {
                 "description": "URL of the provider's public key set to validate signature of the JWT.",
                 "type": "string"
               },
-              "jwksUri": {
+              "jwks_uri": {
                 "description": "URL of the provider's public key set to validate signature of the JWT.",
                 "type": "string"
               },

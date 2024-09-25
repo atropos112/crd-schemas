@@ -740,6 +740,10 @@
           },
           "type": "array"
         },
+        "hostNetwork": {
+          "description": "HostNetwork controls whether the pod may use the node network namespace",
+          "type": "boolean"
+        },
         "host_aliases": {
           "description": "HostAliases provides mapping between ip and hostnames,\nthat would be propagated to pod,\ncannot be used with HostNetwork.",
           "items": {
@@ -761,10 +765,6 @@
             "additionalProperties": false
           },
           "type": "array"
-        },
-        "hostNetwork": {
-          "description": "HostNetwork controls whether the pod may use the node network namespace",
-          "type": "boolean"
         },
         "ignoreNamespaceSelectors": {
           "description": "IgnoreNamespaceSelectors if set to true will ignore NamespaceSelector settings from\nthe podscrape and vmservicescrape configs, and they will only discover endpoints\nwithin their current namespace.  Defaults to false.",
@@ -862,13 +862,6 @@
                 "description": "Separator placed between concatenated source label values. default is ';'.",
                 "type": "string"
               },
-              "source_labels": {
-                "description": "UnderScoreSourceLabels - additional form of source labels source_labels\nfor compatibility with original relabel config.\nif set  both sourceLabels and source_labels, sourceLabels has priority.\nfor details https://github.com/VictoriaMetrics/operator/issues/131",
-                "items": {
-                  "type": "string"
-                },
-                "type": "array"
-              },
               "sourceLabels": {
                 "description": "The source labels select values from existing labels. Their content is concatenated\nusing the configured separator and matched against the configured regular expression\nfor the replace, keep, and drop actions.",
                 "items": {
@@ -876,12 +869,19 @@
                 },
                 "type": "array"
               },
-              "target_label": {
-                "description": "UnderScoreTargetLabel - additional form of target label - target_label\nfor compatibility with original relabel config.\nif set  both targetLabel and target_label, targetLabel has priority.\nfor details https://github.com/VictoriaMetrics/operator/issues/131",
-                "type": "string"
+              "source_labels": {
+                "description": "UnderScoreSourceLabels - additional form of source labels source_labels\nfor compatibility with original relabel config.\nif set  both sourceLabels and source_labels, sourceLabels has priority.\nfor details https://github.com/VictoriaMetrics/operator/issues/131",
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
               },
               "targetLabel": {
                 "description": "Label to which the resulting value is written in a replace action.\nIt is mandatory for replace actions. Regex capture groups are available.",
+                "type": "string"
+              },
+              "target_label": {
+                "description": "UnderScoreTargetLabel - additional form of target label - target_label\nfor compatibility with original relabel config.\nif set  both targetLabel and target_label, targetLabel has priority.\nfor details https://github.com/VictoriaMetrics/operator/issues/131",
                 "type": "string"
               }
             },
@@ -1074,13 +1074,6 @@
                 "description": "Separator placed between concatenated source label values. default is ';'.",
                 "type": "string"
               },
-              "source_labels": {
-                "description": "UnderScoreSourceLabels - additional form of source labels source_labels\nfor compatibility with original relabel config.\nif set  both sourceLabels and source_labels, sourceLabels has priority.\nfor details https://github.com/VictoriaMetrics/operator/issues/131",
-                "items": {
-                  "type": "string"
-                },
-                "type": "array"
-              },
               "sourceLabels": {
                 "description": "The source labels select values from existing labels. Their content is concatenated\nusing the configured separator and matched against the configured regular expression\nfor the replace, keep, and drop actions.",
                 "items": {
@@ -1088,12 +1081,19 @@
                 },
                 "type": "array"
               },
-              "target_label": {
-                "description": "UnderScoreTargetLabel - additional form of target label - target_label\nfor compatibility with original relabel config.\nif set  both targetLabel and target_label, targetLabel has priority.\nfor details https://github.com/VictoriaMetrics/operator/issues/131",
-                "type": "string"
+              "source_labels": {
+                "description": "UnderScoreSourceLabels - additional form of source labels source_labels\nfor compatibility with original relabel config.\nif set  both sourceLabels and source_labels, sourceLabels has priority.\nfor details https://github.com/VictoriaMetrics/operator/issues/131",
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
               },
               "targetLabel": {
                 "description": "Label to which the resulting value is written in a replace action.\nIt is mandatory for replace actions. Regex capture groups are available.",
+                "type": "string"
+              },
+              "target_label": {
+                "description": "UnderScoreTargetLabel - additional form of target label - target_label\nfor compatibility with original relabel config.\nif set  both targetLabel and target_label, targetLabel has priority.\nfor details https://github.com/VictoriaMetrics/operator/issues/131",
                 "type": "string"
               }
             },
@@ -1315,13 +1315,6 @@
                 "description": "Separator placed between concatenated source label values. default is ';'.",
                 "type": "string"
               },
-              "source_labels": {
-                "description": "UnderScoreSourceLabels - additional form of source labels source_labels\nfor compatibility with original relabel config.\nif set  both sourceLabels and source_labels, sourceLabels has priority.\nfor details https://github.com/VictoriaMetrics/operator/issues/131",
-                "items": {
-                  "type": "string"
-                },
-                "type": "array"
-              },
               "sourceLabels": {
                 "description": "The source labels select values from existing labels. Their content is concatenated\nusing the configured separator and matched against the configured regular expression\nfor the replace, keep, and drop actions.",
                 "items": {
@@ -1329,12 +1322,19 @@
                 },
                 "type": "array"
               },
-              "target_label": {
-                "description": "UnderScoreTargetLabel - additional form of target label - target_label\nfor compatibility with original relabel config.\nif set  both targetLabel and target_label, targetLabel has priority.\nfor details https://github.com/VictoriaMetrics/operator/issues/131",
-                "type": "string"
+              "source_labels": {
+                "description": "UnderScoreSourceLabels - additional form of source labels source_labels\nfor compatibility with original relabel config.\nif set  both sourceLabels and source_labels, sourceLabels has priority.\nfor details https://github.com/VictoriaMetrics/operator/issues/131",
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
               },
               "targetLabel": {
                 "description": "Label to which the resulting value is written in a replace action.\nIt is mandatory for replace actions. Regex capture groups are available.",
+                "type": "string"
+              },
+              "target_label": {
+                "description": "UnderScoreTargetLabel - additional form of target label - target_label\nfor compatibility with original relabel config.\nif set  both targetLabel and target_label, targetLabel has priority.\nfor details https://github.com/VictoriaMetrics/operator/issues/131",
                 "type": "string"
               }
             },
@@ -1482,13 +1482,6 @@
                 "description": "Separator placed between concatenated source label values. default is ';'.",
                 "type": "string"
               },
-              "source_labels": {
-                "description": "UnderScoreSourceLabels - additional form of source labels source_labels\nfor compatibility with original relabel config.\nif set  both sourceLabels and source_labels, sourceLabels has priority.\nfor details https://github.com/VictoriaMetrics/operator/issues/131",
-                "items": {
-                  "type": "string"
-                },
-                "type": "array"
-              },
               "sourceLabels": {
                 "description": "The source labels select values from existing labels. Their content is concatenated\nusing the configured separator and matched against the configured regular expression\nfor the replace, keep, and drop actions.",
                 "items": {
@@ -1496,12 +1489,19 @@
                 },
                 "type": "array"
               },
-              "target_label": {
-                "description": "UnderScoreTargetLabel - additional form of target label - target_label\nfor compatibility with original relabel config.\nif set  both targetLabel and target_label, targetLabel has priority.\nfor details https://github.com/VictoriaMetrics/operator/issues/131",
-                "type": "string"
+              "source_labels": {
+                "description": "UnderScoreSourceLabels - additional form of source labels source_labels\nfor compatibility with original relabel config.\nif set  both sourceLabels and source_labels, sourceLabels has priority.\nfor details https://github.com/VictoriaMetrics/operator/issues/131",
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
               },
               "targetLabel": {
                 "description": "Label to which the resulting value is written in a replace action.\nIt is mandatory for replace actions. Regex capture groups are available.",
+                "type": "string"
+              },
+              "target_label": {
+                "description": "UnderScoreTargetLabel - additional form of target label - target_label\nfor compatibility with original relabel config.\nif set  both targetLabel and target_label, targetLabel has priority.\nfor details https://github.com/VictoriaMetrics/operator/issues/131",
                 "type": "string"
               }
             },
@@ -1734,13 +1734,6 @@
                       "description": "Separator placed between concatenated source label values. default is ';'.",
                       "type": "string"
                     },
-                    "source_labels": {
-                      "description": "UnderScoreSourceLabels - additional form of source labels source_labels\nfor compatibility with original relabel config.\nif set  both sourceLabels and source_labels, sourceLabels has priority.\nfor details https://github.com/VictoriaMetrics/operator/issues/131",
-                      "items": {
-                        "type": "string"
-                      },
-                      "type": "array"
-                    },
                     "sourceLabels": {
                       "description": "The source labels select values from existing labels. Their content is concatenated\nusing the configured separator and matched against the configured regular expression\nfor the replace, keep, and drop actions.",
                       "items": {
@@ -1748,12 +1741,19 @@
                       },
                       "type": "array"
                     },
-                    "target_label": {
-                      "description": "UnderScoreTargetLabel - additional form of target label - target_label\nfor compatibility with original relabel config.\nif set  both targetLabel and target_label, targetLabel has priority.\nfor details https://github.com/VictoriaMetrics/operator/issues/131",
-                      "type": "string"
+                    "source_labels": {
+                      "description": "UnderScoreSourceLabels - additional form of source labels source_labels\nfor compatibility with original relabel config.\nif set  both sourceLabels and source_labels, sourceLabels has priority.\nfor details https://github.com/VictoriaMetrics/operator/issues/131",
+                      "items": {
+                        "type": "string"
+                      },
+                      "type": "array"
                     },
                     "targetLabel": {
                       "description": "Label to which the resulting value is written in a replace action.\nIt is mandatory for replace actions. Regex capture groups are available.",
+                      "type": "string"
+                    },
+                    "target_label": {
+                      "description": "UnderScoreTargetLabel - additional form of target label - target_label\nfor compatibility with original relabel config.\nif set  both targetLabel and target_label, targetLabel has priority.\nfor details https://github.com/VictoriaMetrics/operator/issues/131",
                       "type": "string"
                     }
                   },
@@ -1964,13 +1964,6 @@
                                 "description": "Separator placed between concatenated source label values. default is ';'.",
                                 "type": "string"
                               },
-                              "source_labels": {
-                                "description": "UnderScoreSourceLabels - additional form of source labels source_labels\nfor compatibility with original relabel config.\nif set  both sourceLabels and source_labels, sourceLabels has priority.\nfor details https://github.com/VictoriaMetrics/operator/issues/131",
-                                "items": {
-                                  "type": "string"
-                                },
-                                "type": "array"
-                              },
                               "sourceLabels": {
                                 "description": "The source labels select values from existing labels. Their content is concatenated\nusing the configured separator and matched against the configured regular expression\nfor the replace, keep, and drop actions.",
                                 "items": {
@@ -1978,12 +1971,19 @@
                                 },
                                 "type": "array"
                               },
-                              "target_label": {
-                                "description": "UnderScoreTargetLabel - additional form of target label - target_label\nfor compatibility with original relabel config.\nif set  both targetLabel and target_label, targetLabel has priority.\nfor details https://github.com/VictoriaMetrics/operator/issues/131",
-                                "type": "string"
+                              "source_labels": {
+                                "description": "UnderScoreSourceLabels - additional form of source labels source_labels\nfor compatibility with original relabel config.\nif set  both sourceLabels and source_labels, sourceLabels has priority.\nfor details https://github.com/VictoriaMetrics/operator/issues/131",
+                                "items": {
+                                  "type": "string"
+                                },
+                                "type": "array"
                               },
                               "targetLabel": {
                                 "description": "Label to which the resulting value is written in a replace action.\nIt is mandatory for replace actions. Regex capture groups are available.",
+                                "type": "string"
+                              },
+                              "target_label": {
+                                "description": "UnderScoreTargetLabel - additional form of target label - target_label\nfor compatibility with original relabel config.\nif set  both targetLabel and target_label, targetLabel has priority.\nfor details https://github.com/VictoriaMetrics/operator/issues/131",
                                 "type": "string"
                               }
                             },
@@ -2049,13 +2049,6 @@
                                 "description": "Separator placed between concatenated source label values. default is ';'.",
                                 "type": "string"
                               },
-                              "source_labels": {
-                                "description": "UnderScoreSourceLabels - additional form of source labels source_labels\nfor compatibility with original relabel config.\nif set  both sourceLabels and source_labels, sourceLabels has priority.\nfor details https://github.com/VictoriaMetrics/operator/issues/131",
-                                "items": {
-                                  "type": "string"
-                                },
-                                "type": "array"
-                              },
                               "sourceLabels": {
                                 "description": "The source labels select values from existing labels. Their content is concatenated\nusing the configured separator and matched against the configured regular expression\nfor the replace, keep, and drop actions.",
                                 "items": {
@@ -2063,12 +2056,19 @@
                                 },
                                 "type": "array"
                               },
-                              "target_label": {
-                                "description": "UnderScoreTargetLabel - additional form of target label - target_label\nfor compatibility with original relabel config.\nif set  both targetLabel and target_label, targetLabel has priority.\nfor details https://github.com/VictoriaMetrics/operator/issues/131",
-                                "type": "string"
+                              "source_labels": {
+                                "description": "UnderScoreSourceLabels - additional form of source labels source_labels\nfor compatibility with original relabel config.\nif set  both sourceLabels and source_labels, sourceLabels has priority.\nfor details https://github.com/VictoriaMetrics/operator/issues/131",
+                                "items": {
+                                  "type": "string"
+                                },
+                                "type": "array"
                               },
                               "targetLabel": {
                                 "description": "Label to which the resulting value is written in a replace action.\nIt is mandatory for replace actions. Regex capture groups are available.",
+                                "type": "string"
+                              },
+                              "target_label": {
+                                "description": "UnderScoreTargetLabel - additional form of target label - target_label\nfor compatibility with original relabel config.\nif set  both targetLabel and target_label, targetLabel has priority.\nfor details https://github.com/VictoriaMetrics/operator/issues/131",
                                 "type": "string"
                               }
                             },
@@ -2546,13 +2546,6 @@
                 "description": "Separator placed between concatenated source label values. default is ';'.",
                 "type": "string"
               },
-              "source_labels": {
-                "description": "UnderScoreSourceLabels - additional form of source labels source_labels\nfor compatibility with original relabel config.\nif set  both sourceLabels and source_labels, sourceLabels has priority.\nfor details https://github.com/VictoriaMetrics/operator/issues/131",
-                "items": {
-                  "type": "string"
-                },
-                "type": "array"
-              },
               "sourceLabels": {
                 "description": "The source labels select values from existing labels. Their content is concatenated\nusing the configured separator and matched against the configured regular expression\nfor the replace, keep, and drop actions.",
                 "items": {
@@ -2560,12 +2553,19 @@
                 },
                 "type": "array"
               },
-              "target_label": {
-                "description": "UnderScoreTargetLabel - additional form of target label - target_label\nfor compatibility with original relabel config.\nif set  both targetLabel and target_label, targetLabel has priority.\nfor details https://github.com/VictoriaMetrics/operator/issues/131",
-                "type": "string"
+              "source_labels": {
+                "description": "UnderScoreSourceLabels - additional form of source labels source_labels\nfor compatibility with original relabel config.\nif set  both sourceLabels and source_labels, sourceLabels has priority.\nfor details https://github.com/VictoriaMetrics/operator/issues/131",
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
               },
               "targetLabel": {
                 "description": "Label to which the resulting value is written in a replace action.\nIt is mandatory for replace actions. Regex capture groups are available.",
+                "type": "string"
+              },
+              "target_label": {
+                "description": "UnderScoreTargetLabel - additional form of target label - target_label\nfor compatibility with original relabel config.\nif set  both targetLabel and target_label, targetLabel has priority.\nfor details https://github.com/VictoriaMetrics/operator/issues/131",
                 "type": "string"
               }
             },
@@ -2735,13 +2735,6 @@
                 "description": "Separator placed between concatenated source label values. default is ';'.",
                 "type": "string"
               },
-              "source_labels": {
-                "description": "UnderScoreSourceLabels - additional form of source labels source_labels\nfor compatibility with original relabel config.\nif set  both sourceLabels and source_labels, sourceLabels has priority.\nfor details https://github.com/VictoriaMetrics/operator/issues/131",
-                "items": {
-                  "type": "string"
-                },
-                "type": "array"
-              },
               "sourceLabels": {
                 "description": "The source labels select values from existing labels. Their content is concatenated\nusing the configured separator and matched against the configured regular expression\nfor the replace, keep, and drop actions.",
                 "items": {
@@ -2749,12 +2742,19 @@
                 },
                 "type": "array"
               },
-              "target_label": {
-                "description": "UnderScoreTargetLabel - additional form of target label - target_label\nfor compatibility with original relabel config.\nif set  both targetLabel and target_label, targetLabel has priority.\nfor details https://github.com/VictoriaMetrics/operator/issues/131",
-                "type": "string"
+              "source_labels": {
+                "description": "UnderScoreSourceLabels - additional form of source labels source_labels\nfor compatibility with original relabel config.\nif set  both sourceLabels and source_labels, sourceLabels has priority.\nfor details https://github.com/VictoriaMetrics/operator/issues/131",
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
               },
               "targetLabel": {
                 "description": "Label to which the resulting value is written in a replace action.\nIt is mandatory for replace actions. Regex capture groups are available.",
+                "type": "string"
+              },
+              "target_label": {
+                "description": "UnderScoreTargetLabel - additional form of target label - target_label\nfor compatibility with original relabel config.\nif set  both targetLabel and target_label, targetLabel has priority.\nfor details https://github.com/VictoriaMetrics/operator/issues/131",
                 "type": "string"
               }
             },
@@ -3315,13 +3315,6 @@
                 "description": "Separator placed between concatenated source label values. default is ';'.",
                 "type": "string"
               },
-              "source_labels": {
-                "description": "UnderScoreSourceLabels - additional form of source labels source_labels\nfor compatibility with original relabel config.\nif set  both sourceLabels and source_labels, sourceLabels has priority.\nfor details https://github.com/VictoriaMetrics/operator/issues/131",
-                "items": {
-                  "type": "string"
-                },
-                "type": "array"
-              },
               "sourceLabels": {
                 "description": "The source labels select values from existing labels. Their content is concatenated\nusing the configured separator and matched against the configured regular expression\nfor the replace, keep, and drop actions.",
                 "items": {
@@ -3329,12 +3322,19 @@
                 },
                 "type": "array"
               },
-              "target_label": {
-                "description": "UnderScoreTargetLabel - additional form of target label - target_label\nfor compatibility with original relabel config.\nif set  both targetLabel and target_label, targetLabel has priority.\nfor details https://github.com/VictoriaMetrics/operator/issues/131",
-                "type": "string"
+              "source_labels": {
+                "description": "UnderScoreSourceLabels - additional form of source labels source_labels\nfor compatibility with original relabel config.\nif set  both sourceLabels and source_labels, sourceLabels has priority.\nfor details https://github.com/VictoriaMetrics/operator/issues/131",
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
               },
               "targetLabel": {
                 "description": "Label to which the resulting value is written in a replace action.\nIt is mandatory for replace actions. Regex capture groups are available.",
+                "type": "string"
+              },
+              "target_label": {
+                "description": "UnderScoreTargetLabel - additional form of target label - target_label\nfor compatibility with original relabel config.\nif set  both targetLabel and target_label, targetLabel has priority.\nfor details https://github.com/VictoriaMetrics/operator/issues/131",
                 "type": "string"
               }
             },

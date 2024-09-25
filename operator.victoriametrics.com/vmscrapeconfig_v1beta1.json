@@ -418,6 +418,10 @@
                 "description": "Admin Partitions are only supported in Consul Enterprise.",
                 "type": "string"
               },
+              "proxyURL": {
+                "description": "ProxyURL eg http://proxyserver:2195 Directs scrapes to proxy through this endpoint.",
+                "type": "string"
+              },
               "proxy_client_config": {
                 "description": "ProxyClientConfig configures proxy auth settings for scraping\nSee feature description https://docs.victoriametrics.com/vmagent.html#scraping-targets-via-a-proxy",
                 "properties": {
@@ -663,10 +667,6 @@
                 },
                 "type": "object",
                 "additionalProperties": false
-              },
-              "proxyURL": {
-                "description": "ProxyURL eg http://proxyserver:2195 Directs scrapes to proxy through this endpoint.",
-                "type": "string"
               },
               "scheme": {
                 "description": "HTTP Scheme default \"http\"",
@@ -1050,6 +1050,10 @@
                 "description": "The port to scrape metrics from.",
                 "type": "integer"
               },
+              "proxyURL": {
+                "description": "ProxyURL eg http://proxyserver:2195 Directs scrapes to proxy through this endpoint.",
+                "type": "string"
+              },
               "proxy_client_config": {
                 "description": "ProxyClientConfig configures proxy auth settings for scraping\nSee feature description https://docs.victoriametrics.com/vmagent.html#scraping-targets-via-a-proxy",
                 "properties": {
@@ -1295,10 +1299,6 @@
                 },
                 "type": "object",
                 "additionalProperties": false
-              },
-              "proxyURL": {
-                "description": "ProxyURL eg http://proxyserver:2195 Directs scrapes to proxy through this endpoint.",
-                "type": "string"
               },
               "tlsConfig": {
                 "description": "TLS configuration to use on every scrape request",
@@ -1761,6 +1761,10 @@
                 "type": "object",
                 "additionalProperties": false
               },
+              "proxyURL": {
+                "description": "ProxyURL eg http://proxyserver:2195 Directs scrapes to proxy through this endpoint.",
+                "type": "string"
+              },
               "proxy_client_config": {
                 "description": "ProxyClientConfig configures proxy auth settings for scraping\nSee feature description https://docs.victoriametrics.com/vmagent.html#scraping-targets-via-a-proxy",
                 "properties": {
@@ -2006,10 +2010,6 @@
                 },
                 "type": "object",
                 "additionalProperties": false
-              },
-              "proxyURL": {
-                "description": "ProxyURL eg http://proxyserver:2195 Directs scrapes to proxy through this endpoint.",
-                "type": "string"
               },
               "tlsConfig": {
                 "description": "TLS configuration to use on every scrape request",
@@ -2429,6 +2429,10 @@
                 "type": "object",
                 "additionalProperties": false
               },
+              "proxyURL": {
+                "description": "ProxyURL eg http://proxyserver:2195 Directs scrapes to proxy through this endpoint.",
+                "type": "string"
+              },
               "proxy_client_config": {
                 "description": "ProxyClientConfig configures proxy auth settings for scraping\nSee feature description https://docs.victoriametrics.com/vmagent.html#scraping-targets-via-a-proxy",
                 "properties": {
@@ -2675,10 +2679,6 @@
                 "type": "object",
                 "additionalProperties": false
               },
-              "proxyURL": {
-                "description": "ProxyURL eg http://proxyserver:2195 Directs scrapes to proxy through this endpoint.",
-                "type": "string"
-              },
               "role": {
                 "description": "Role of the Kubernetes entities that should be discovered.",
                 "type": "string"
@@ -2916,13 +2916,6 @@
                 "description": "Separator placed between concatenated source label values. default is ';'.",
                 "type": "string"
               },
-              "source_labels": {
-                "description": "UnderScoreSourceLabels - additional form of source labels source_labels\nfor compatibility with original relabel config.\nif set  both sourceLabels and source_labels, sourceLabels has priority.\nfor details https://github.com/VictoriaMetrics/operator/issues/131",
-                "items": {
-                  "type": "string"
-                },
-                "type": "array"
-              },
               "sourceLabels": {
                 "description": "The source labels select values from existing labels. Their content is concatenated\nusing the configured separator and matched against the configured regular expression\nfor the replace, keep, and drop actions.",
                 "items": {
@@ -2930,12 +2923,19 @@
                 },
                 "type": "array"
               },
-              "target_label": {
-                "description": "UnderScoreTargetLabel - additional form of target label - target_label\nfor compatibility with original relabel config.\nif set  both targetLabel and target_label, targetLabel has priority.\nfor details https://github.com/VictoriaMetrics/operator/issues/131",
-                "type": "string"
+              "source_labels": {
+                "description": "UnderScoreSourceLabels - additional form of source labels source_labels\nfor compatibility with original relabel config.\nif set  both sourceLabels and source_labels, sourceLabels has priority.\nfor details https://github.com/VictoriaMetrics/operator/issues/131",
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
               },
               "targetLabel": {
                 "description": "Label to which the resulting value is written in a replace action.\nIt is mandatory for replace actions. Regex capture groups are available.",
+                "type": "string"
+              },
+              "target_label": {
+                "description": "UnderScoreTargetLabel - additional form of target label - target_label\nfor compatibility with original relabel config.\nif set  both targetLabel and target_label, targetLabel has priority.\nfor details https://github.com/VictoriaMetrics/operator/issues/131",
                 "type": "string"
               }
             },
@@ -3402,13 +3402,6 @@
                 "description": "Separator placed between concatenated source label values. default is ';'.",
                 "type": "string"
               },
-              "source_labels": {
-                "description": "UnderScoreSourceLabels - additional form of source labels source_labels\nfor compatibility with original relabel config.\nif set  both sourceLabels and source_labels, sourceLabels has priority.\nfor details https://github.com/VictoriaMetrics/operator/issues/131",
-                "items": {
-                  "type": "string"
-                },
-                "type": "array"
-              },
               "sourceLabels": {
                 "description": "The source labels select values from existing labels. Their content is concatenated\nusing the configured separator and matched against the configured regular expression\nfor the replace, keep, and drop actions.",
                 "items": {
@@ -3416,12 +3409,19 @@
                 },
                 "type": "array"
               },
-              "target_label": {
-                "description": "UnderScoreTargetLabel - additional form of target label - target_label\nfor compatibility with original relabel config.\nif set  both targetLabel and target_label, targetLabel has priority.\nfor details https://github.com/VictoriaMetrics/operator/issues/131",
-                "type": "string"
+              "source_labels": {
+                "description": "UnderScoreSourceLabels - additional form of source labels source_labels\nfor compatibility with original relabel config.\nif set  both sourceLabels and source_labels, sourceLabels has priority.\nfor details https://github.com/VictoriaMetrics/operator/issues/131",
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
               },
               "targetLabel": {
                 "description": "Label to which the resulting value is written in a replace action.\nIt is mandatory for replace actions. Regex capture groups are available.",
+                "type": "string"
+              },
+              "target_label": {
+                "description": "UnderScoreTargetLabel - additional form of target label - target_label\nfor compatibility with original relabel config.\nif set  both targetLabel and target_label, targetLabel has priority.\nfor details https://github.com/VictoriaMetrics/operator/issues/131",
                 "type": "string"
               }
             },

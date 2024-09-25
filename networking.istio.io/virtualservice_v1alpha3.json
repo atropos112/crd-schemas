@@ -854,10 +854,6 @@
                 "type": "object",
                 "additionalProperties": false
               },
-              "mirror_percent": {
-                "nullable": true,
-                "type": "integer"
-              },
               "mirrorPercent": {
                 "nullable": true,
                 "type": "integer"
@@ -872,6 +868,10 @@
                 },
                 "type": "object",
                 "additionalProperties": false
+              },
+              "mirror_percent": {
+                "nullable": true,
+                "type": "integer"
               },
               "mirrors": {
                 "description": "Specifies the destinations to mirror HTTP traffic in addition to the original destination.",

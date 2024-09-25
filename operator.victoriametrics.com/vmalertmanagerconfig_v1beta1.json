@@ -1011,6 +1011,10 @@
                       "description": "Comma separated list of actions that will be available for the alert.",
                       "type": "string"
                     },
+                    "apiURL": {
+                      "description": "The URL to send OpsGenie API requests to.",
+                      "type": "string"
+                    },
                     "api_key": {
                       "description": "The secret's key that contains the OpsGenie API key.\nIt must be at them same namespace as CRD",
                       "properties": {
@@ -1033,10 +1037,6 @@
                       "type": "object",
                       "x-kubernetes-map-type": "atomic",
                       "additionalProperties": false
-                    },
-                    "apiURL": {
-                      "description": "The URL to send OpsGenie API requests to.",
-                      "type": "string"
                     },
                     "description": {
                       "description": "Description of the incident.",

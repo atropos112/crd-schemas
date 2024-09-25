@@ -243,10 +243,6 @@
                 "type": "object",
                 "additionalProperties": false
               },
-              "target_path_suffix": {
-                "description": "TargetPathSuffix allows to add some suffix to the target path\nIt allows to hide tenant configuration from user with crd as ref.\nit also may contain any url encoded params.",
-                "type": "string"
-              },
               "targetRefBasicAuth": {
                 "description": "TargetRefBasicAuth allow an target endpoint to authenticate over basic authentication",
                 "properties": {
@@ -303,6 +299,10 @@
                 ],
                 "type": "object",
                 "additionalProperties": false
+              },
+              "target_path_suffix": {
+                "description": "TargetPathSuffix allows to add some suffix to the target path\nIt allows to hide tenant configuration from user with crd as ref.\nit also may contain any url encoded params.",
+                "type": "string"
               }
             },
             "type": "object",
